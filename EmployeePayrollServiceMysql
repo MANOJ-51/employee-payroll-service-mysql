@@ -137,4 +137,38 @@ mysql> SELECT salary FROM employee_payroll
 4 rows in set (0.00 sec)
 
 ------------------------------------------------------------------------------------------------------------------------
+UC-6 : alter table and add column gender
+
+commands used :
+1.alter table employee_payroll add column gender char(1);
+2.update employee_payroll set gender = 'M' where name ='manoj' or name= 'sandeep';
+3.update employee_payroll set gender = 'F' where name ='rani' or name= 'sujatha';
+--------------------------------------------------
+view in mysql :
+
+mysql> alter table employee_payroll add column gender char(1);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update employee_payroll set gender = 'M' where name ='manoj' or name= 'sandeep';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> update employee_payroll set gender = 'F' where name ='rani' or name= 'sujatha';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+---------+--------+------------+--------+
+| id | name    | salary | start_date | gender |
++----+---------+--------+------------+--------+
+|  1 | manoj   |   5000 | 2018-01-05 | M      |
+|  2 | sandeep |   6000 | 2019-05-04 | M      |
+|  3 | rani    |   4000 | 2020-04-07 | F      |
+|  4 | sujatha |   4500 | 2018-06-07 | F      |
++----+---------+--------+------------+--------+
+4 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------
+
 
