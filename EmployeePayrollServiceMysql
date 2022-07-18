@@ -170,5 +170,61 @@ mysql> select * from employee_payroll;
 4 rows in set (0.00 sec)
 
 ------------------------------------------------------------------------------------------------------------------------
+UC -7 : perform database operations sum,min,max,avg,count.
+
+commands used :
+
+1.select sum(salary) from employee_payroll where gender = 'F' group by gender;
+2.select id,name,avg(salary) from employee_payroll  group by gender;
+3.select min(salary) from employee_payroll where gender = 'M' group by gender;
+4.select id,name,max(salary) from employee_payroll group by gender;
+5.select name,count(name) from employee_payroll group by gender;
+------------------------------------------------------
+view in mysql :
+
+mysql> select sum(salary) from employee_payroll where gender = 'F' group by gender;
++-------------+
+| sum(salary) |
++-------------+
+|        8500 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,avg(salary) from employee_payroll  group by gender;
++----+-------+-------------+
+| id | name  | avg(salary) |
++----+-------+-------------+
+|  1 | manoj |        5500 |
+|  3 | rani  |        4250 |
++----+-------+-------------+
+2 rows in set (0.01 sec)
+
+mysql> select min(salary) from employee_payroll where gender = 'M' group by gender;
++-------------+
+| min(salary) |
++-------------+
+|        5000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select id,name,max(salary) from employee_payroll group by gender;
++----+-------+-------------+
+| id | name  | max(salary) |
++----+-------+-------------+
+|  1 | manoj |        6000 |
+|  3 | rani  |        4500 |
++----+-------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select name,count(name) from employee_payroll group by gender;
++-------+-------------+
+| name  | count(name) |
++-------+-------------+
+| manoj |           2 |
+| rani  |           2 |
++-------+-------------+
+2 rows in set (0.00 sec)
+
+------------------------------------------------------------------------------------------------------------------------
 
 
