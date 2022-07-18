@@ -277,6 +277,39 @@ mysql> describe employee_payroll;
 13 rows in set (0.00 sec)
 
 ------------------------------------------------------------------------------------------------------------------------
+UC -10 :ability to add terissa as part of sales and marketing department .
+
+commands used :
+1.insert into employee_payroll (name,salary,start_date,gender,phone_number,address,department,basic_pay,
+deductions,taxable_pay,income_tax,net_pay) values
+('terissa',50000.00,'2018-04-02','F',null,'ap','sales',null,null,null,null,null);
+2.insert into employee_payroll (name,salary,start_date,gender,phone_number,address,department,basic_pay,
+  deductions,taxable_pay,income_tax,net_pay) values
+  ('terissa',50000.00,'2018-04-02','F',null,'ap','marketing',null,null,null,null,null);
+3.select *from employee_payroll where name = 'terissa';
+------------------------------------
+view in mysql :
+
+mysql> insert into employee_payroll (name,salary,start_date,gender,phone_number,address,department,basic_pay,
+    -> deductions,taxable_pay,income_tax,net_pay) values
+    -> ('terissa',50000.00,'2018-04-02','F',null,'ap','sales',null,null,null,null,null);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into employee_payroll (name,salary,start_date,gender,phone_number,address,department,basic_pay,
+    -> deductions,taxable_pay,income_tax,net_pay) values
+    -> ('terissa',50000.00,'2018-04-02','F',null,'ap','marketing',null,null,null,null,null);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from employee_payroll where name = 'terissa';
++----+---------+--------+------------+--------+--------------+---------+------------+-----------+------------+-------------+------------+---------+
+| id | name    | salary | start_date | gender | phone_number | address | department | basic_pay | deductions | taxable_pay | income_tax | net_pay |
++----+---------+--------+------------+--------+--------------+---------+------------+-----------+------------+-------------+------------+---------+
+|  5 | terissa |  50000 | 2018-04-02 | F      |         NULL | ap      | sales      |      NULL |       NULL |        NULL |       NULL |    NULL |
+|  6 | terissa |  50000 | 2018-04-02 | F      |         NULL | ap      | marketing  |      NULL |       NULL |        NULL |       NULL |    NULL |
++----+---------+--------+------------+--------+--------------+---------+------------+-----------+------------+-------------+------------+---------+
+2 rows in set (0.00 sec)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
