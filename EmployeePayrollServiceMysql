@@ -64,3 +64,24 @@ mysql> describe employee_payroll;
 4 rows in set (0.01 sec)
 
 ------------------------------------------------------------------------------------------------------------------------
+UC-3 : insert data into table
+
+commands used :
+1.insert into employee_payroll (name,salary,start_date)values
+      -> ('manoj',5000.00,'2018-01-05'),
+      -> ('sandeep',6000.00,'2019-05-04'),
+      -> ('rani',4000.00,'2020-04-07');
+      -> ('sujatha',4500.00,'2018-06-07');
+-----------------------------------------
+
+view in my sql:
+
+mysql> insert into employee_payroll (name,salary,start_date)values
+    -> ('manoj',5000.00,'2018-01-05'),
+    -> ('sandeep',6000.00,'2019-05-04'),
+    -> ('rani',4000.00,'2020-04-07');
+    -> ('sujatha',4500.00,'2018-06-07');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+------------------------------------------------------------------------------------------------------------------------
