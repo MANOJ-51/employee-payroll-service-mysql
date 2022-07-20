@@ -309,11 +309,113 @@ mysql> select * from employee_payroll where name = 'terissa';
 +----+---------+--------+------------+--------+--------------+---------+------------+-----------+------------+-------------+------------+---------+
 2 rows in set (0.00 sec)
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ER diagram : code in mysql
 
+Table-1: company
+creating a main table company:
+it consists of two attributes
+1.company_name
+2.employee_id it will be a primary key
 
+mysql code for table 1:
+create table company (
+company_name varchar(30),
+employee_id varchar (20) primary key ,
+employee_name varchar(20)
+);
 
+Table -2 : employee_details
+crating a employee_details table:
+it consists of information related to employee in a company
+1.employee_id it refers to the employee_id in the previous table of company and its a primary key
+2.employee_name
+3.gender
+4.address
+5.phone_number
+6.hire_date
+7.salary
 
+code for table to in mysql :
+create table employee_details (
+employee_id varchar(20) primary key,
+employee_name varchar (20),
+employee_gender char (1),
+employee_address varchar(50),
+employee_mobile_number varchar(10),
+employee_hire_date date,
+employee_salary double,
+foreign key (employee_id) references company(employee_id)
+);
+
+Table-3 : employee_payroll_details
+creating a table for employee_payroll_details:
+it consists of employee salary details like
+1.employee_id as primary key and reference of company table employee_id
+2.employee_name
+3.employee_salary
+4.basic_pay
+5.deductions
+6.taxable_pay
+7.income_tax
+8.net_pay
+
+code for table-3 in mysql :
+create table employee_payroll_details (
+employee_id varchar(20) primary key,
+employee_name varchar(20),
+employee_salary double,
+basic_pay double,
+deductions double,
+taxable_pay double,
+income_tax double,
+net_pay double,
+foreign key (employee_id) references company(employee_id)
+);
+
+view in mysql:
+
+table-1
+
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| company_name  | varchar(30) | YES  |     | NULL    |       |
+| employee_id   | varchar(20) | NO   | PRI | NULL    |       |
+| employee_name | varchar(20) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+table-2
+
++------------------------+-------------+------+-----+---------+-------+
+| Field                  | Type        | Null | Key | Default | Extra |
++------------------------+-------------+------+-----+---------+-------+
+| employee_id            | varchar(20) | NO   | PRI | NULL    |       |
+| employee_name          | varchar(20) | YES  |     | NULL    |       |
+| employee_gender        | char(1)     | YES  |     | NULL    |       |
+| employee_address       | varchar(50) | YES  |     | NULL    |       |
+| employee_mobile_number | varchar(10) | YES  |     | NULL    |       |
+| employee_hire_date     | date        | YES  |     | NULL    |       |
+| employee_salary        | double      | YES  |     | NULL    |       |
++------------------------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+table -3
+
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| employee_id     | varchar(20) | NO   | PRI | NULL    |       |
+| employee_name   | varchar(20) | YES  |     | NULL    |       |
+| employee_salary | double      | YES  |     | NULL    |       |
+| basic_pay       | double      | YES  |     | NULL    |       |
+| deductions      | double      | YES  |     | NULL    |       |
+| taxable_pay     | double      | YES  |     | NULL    |       |
+| income_tax      | double      | YES  |     | NULL    |       |
+| net_pay         | double      | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
 
 
 
